@@ -2,9 +2,10 @@ import React from "react";
 
 const Product = ({ name, price, stocked }) => {
   return (
-    <div className="product_row">
-      {name}, {price}
-    </div>
+    <tr style={{ color: stocked ? "black" : "red" }}>
+      <td>{name}</td>
+      <td>{price}</td>
+    </tr>
   );
 };
 
