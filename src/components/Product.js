@@ -2,8 +2,8 @@ import React from "react";
 
 const Product = ({ name, price, stocked }) => {
   return (
-    <tr style={{ color: stocked ? "black" : "red" }}>
-      <td>{name}</td>
+    <tr>
+      <td style={{ color: stocked ? "black" : "red" }}>{name}</td>
       <td>{price}</td>
     </tr>
   );

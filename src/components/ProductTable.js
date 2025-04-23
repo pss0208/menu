@@ -6,10 +6,10 @@ const ProductTable = ({ searchData }) => {
   //카테고리별로 상품을 묶어서 출력하는 함수
   const classifyCategory = (searchData) => {
     //카테고리와 상품을 넣을 맵(key: 카테고리, value: 상품 정보)
+    //데이터가 카테고리 순으로 들어오지 않더라도 카테고리별로 그룹화하기위해 Map 사용
     const categoryMap = new Map();
 
-    //상품 정보 배열 [{}]
-    //ex)[{ category: "Fruits", price: "$1", stocked: true, name: "Apple" }, { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" }]
+    //카테고리 배열 ex)["Fruits", "Vegetables"]
     const categoryArr = [];
 
     //카테고리별 분류
@@ -21,7 +21,14 @@ const ProductTable = ({ searchData }) => {
       categoryMap.get(data.category).push(data);
     });
     return (
-      <table className="col_table" style={{ border: "1px solid" }}>
+      <table
+        className="col_table"
+        style={{ border: "1px solid", weight: "400px" }}
+      >
+        <colgroup>
+          <col style={{ weight: "50%" }} />
+          <col style={{ weight: "50%" }} />
+        </colgroup>
         <thead>
           <tr>
             <td className="col">Name</td>
@@ -33,9 +40,9 @@ const ProductTable = ({ searchData }) => {
           return (
             <tbody key={category}>
               <tr>
-                <td colSpan="2">
+                <th colSpan="2">
                   <Category category={category} />
-                </td>
+                </th>
               </tr>
               {data.map((productInfo) => {
                 return (

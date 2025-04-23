@@ -12,22 +12,9 @@ const data = [
   { category: "Vegetables", price: "$1", stocked: true, name: "Peas" },
 ];
 
-//Todo
-//실시간검색기능 추가
-
 const MenuTable = () => {
-  //   const [searchKeyword, setSearchKeyword] = useState("");
-  //const [searchData, setSearchData] = useState(Array(data.length).fill(null));
   const [searchData, setSearchData] = useState(data);
 
-  // const setData = (value) => {
-  //   const arr = data.slice();
-  //   let rtnArr = [];
-  //   arr.forEach((row) => {
-  //     if (row.name.toLowerCase().indexOf(value) !== -1) rtnArr.push(row);
-  //   });
-  //   setSearchData(rtnArr);
-  // };
   const setData = (value) => {
     const searchValue = value.toLowerCase();
     const filtered = data.filter((row) =>
@@ -37,7 +24,6 @@ const MenuTable = () => {
   };
 
   const onSearch = (value) => {
-    // setSearchKeyword(value);
     setData(value);
   };
 
